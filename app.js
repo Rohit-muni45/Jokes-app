@@ -4,7 +4,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const getJokeBtn = document.getElementById('get-joke-btn');
     const jokeTypeSelect = document.getElementById('joke-type');
     const jokeCategorySelect = document.getElementById('joke-category');
-  
+
+    jokeContainer.style.visibility = 'hidden';
+    
     getJokeBtn.addEventListener('click', function () {
       const jokeType = jokeTypeSelect.value;
       const jokeCategory = jokeCategorySelect.value;
@@ -16,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
           } else if (jokeType === 'twopart') {
             jokeContainer.innerHTML = `SETUP:=> ${data.setup}<br>PUNCHLINE:=> ${data.delivery}`;
           }
+          jokeContainer.style.visibility = 'visible';
         })
         .catch(error => {
           console.error('Error fetching joke:', error);
